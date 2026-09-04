@@ -19,7 +19,7 @@ Open daarna [http://localhost:8000](http://localhost:8000).
 3. Kies bij **Build and deployment** voor **Deploy from a branch**.
 4. Selecteer de standaardbranch en de map **/(root)** en klik op **Save**.
 
-Na enkele minuten staat de site op `https://eljohaspels.github.io/leeravontuur/`.
+Na enkele minuten staat de site op `https://eljohaspels.github.io/leesavontuur/`.
 
 ## Gegevens
 
