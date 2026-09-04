@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#6c5ce7" />
+    <meta
+      name="description"
+      content="Mijn Leesavontuur: houd leestijd bij, verdien punten en verzamel badges."
+    />
+    <title>Mijn Leesavontuur</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="sky" aria-hidden="true">
+      <span>✦</span><span>★</span><span>✦</span><span>★</span>
+    </div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <div class="hero__book" aria-hidden="true">📚</div>
+        <div>
+          <p class="eyebrow">Elke bladzijde is een avontuur</p>
+          <h1>Mijn Leesavontuur</h1>
+          <p class="hero__subtitle">Lees, verzamel punten en word een echte leesheld!</p>
+        </div>
+      </header>
+
+      <section class="reader-card card" aria-labelledby="reading-title">
+        <p class="card-label" id="reading-title">Hoeveel minuten heb je gelezen?</p>
+        <div class="minute-picker">
+          <button class="round-button round-button--minus" id="minus-button" type="button" aria-label="Eén minuut minder">−</button>
+          <div class="minute-display" aria-live="polite">
+            <strong id="minute-value">15</strong>
+            <span>minuten</span>
+          </div>
+          <button class="round-button round-button--plus" id="plus-button" type="button" aria-label="Eén minuut meer">+</button>
+        </div>
+        <button class="save-button" id="save-button" type="button">
+          <span aria-hidden="true">✨</span> Voeg mijn leestijd toe!
+        </button>
+      </section>
+
+      <section class="progress-grid" aria-label="Jouw voortgang">
+        <article class="points-card card">
+          <div class="stat-icon" aria-hidden="true">⭐</div>
+          <div>
+            <p class="card-label">Jouw punten</p>
+            <p class="big-stat"><span id="total-points">0</span> <small>punten</small></p>
+          </div>
+        </article>
+
+        <article class="level-card card">
+          <div class="level-heading">
+            <div>
+              <p class="card-label">Jouw level</p>
+              <h2 id="level-name">Boekstarter</h2>
+            </div>
+            <span class="level-icon" id="level-icon" aria-hidden="true">🌱</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-label="Voortgang naar het volgende level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-fill" id="level-progress"></div>
+          </div>
+          <p class="progress-text" id="level-progress-text">Nog 100 punten tot Letterheld</p>
+        </article>
+      </section>
+
+      <section class="card weekly-card" aria-labelledby="week-title">
+        <div class="section-heading">
+          <div>
+            <p class="card-label">Deze week</p>
+            <h2 id="week-title">Jouw leesweek</h2>
+          </div>
+          <span aria-hidden="true">🗓️</span>
+        </div>
+        <div class="week-grid" id="week-grid"></div>
+        <p class="week-total" id="week-total">Deze week: 0 minuten gelezen</p>
+      </section>
+
+      <section class="card badges-card" aria-labelledby="badges-title">
+        <div class="section-heading">
+          <div>
+            <p class="card-label">Schatten om te verzamelen</p>
+            <h2 id="badges-title">Mijn badges</h2>
+          </div>
+          <span aria-hidden="true">🏆</span>
+        </div>
+        <div class="badge-grid" id="badge-grid"></div>
+      </section>
+
+      <footer>
+        <p>Veel leesplezier! 📖</p>
+        <button class="settings-button" id="settings-button" type="button" aria-label="Instellingen voor ouders">⚙️ Voor ouders</button>
+      </footer>
+    </main>
+
+    <div class="celebration" id="celebration" role="status" aria-live="assertive" hidden>
+      <div class="celebration__panel">
+        <div class="celebration__icon" id="celebration-icon" aria-hidden="true">🎉</div>
+        <h2 id="celebration-title">Goed gedaan!</h2>
+        <p id="celebration-message"></p>
+        <button id="celebration-close" type="button">Verder lezen!</button>
+      </div>
+    </div>
+
+    <dialog id="settings-dialog" class="settings-dialog">
+      <form method="dialog">
+        <div class="dialog-heading">
+          <div>
+            <p class="card-label">Alleen voor grote mensen</p>
+            <h2>Voor ouders</h2>
+          </div>
+          <button class="close-button" value="cancel" aria-label="Sluiten">×</button>
+        </div>
+        <p>Bewaar een kopie van de leesgeschiedenis of zet een kopie terug.</p>
+        <div class="settings-actions">
+          <button class="secondary-button" id="export-button" type="button">⬇️ Exporteer JSON</button>
+          <label class="secondary-button file-button" for="import-file">⬆️ Importeer JSON</label>
+          <input id="import-file" type="file" accept="application/json,.json" />
+          <button class="danger-button" id="reset-button" type="button">🗑️ Wis alle gegevens</button>
+        </div>
+        <p class="settings-message" id="settings-message" aria-live="polite"></p>
+      </form>
+    </dialog>
+  </body>
+</html>
